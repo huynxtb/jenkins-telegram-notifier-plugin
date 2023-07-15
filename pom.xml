@@ -13,7 +13,7 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>telegram-notifier</artifactId>
-    <version>2.2</version>
+    <version>2.3</version>
     <packaging>hpi</packaging>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 

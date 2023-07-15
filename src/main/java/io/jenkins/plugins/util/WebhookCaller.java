@@ -28,7 +28,8 @@ public class WebhookCaller {
                     "Branch: " + dto.getBranchName() + "\n" +
                     "Commit ID: " + dto.getCommitId() + "\n" +
                     "Job Link: <a href=\""+dto.getJobLink()+"\">"+dto.getJobLink()+"</a>\n" +
-                    "Site Link: <a href=\""+dto.getWebUrl()+"\">"+dto.getWebUrl()+"</a>";
+                    "Site Link: <a href=\""+dto.getWebUrl()+"\">"+dto.getWebUrl()+"</a>\n" +
+                    "Description: "+dto.getDescription();
             String telegramApi = "https://api.telegram.org/bot" + this.accessToken + "/sendMessage";
             String parameters = "?text=" + URLEncoder.encode(htmlMsg, StandardCharsets.UTF_8.toString()) + "&parse_mode=HTML" + "&chat_id=" + this.chatId;
             String finalRequest = telegramApi + parameters;
