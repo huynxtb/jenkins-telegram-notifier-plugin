@@ -1,55 +1,23 @@
-# Read Me
-
-[//]: # (This repo has been moved to [jenkinsci organization]&#40;https://github.com/jenkinsci/notifier-plugin&#41;. Please submit issues/PRs there.)
-
 # Telegram Notifier
 
 Telegram Notifier provides a bridge between Jenkins and Microsoft Teams through the built-in webhook functionality.
 - Get success and fail messages about your job
-- Link to build artifacts
+
 ## The purpose
 
-The Jenkins Telegram Notifier plugin was made to share results of a build to a Microsoft Teams channel using the webhooks that Microsoft Teams provides.
+The Jenkins Telegram Notifier plugin was made to share results of a build to a Telegram channel using the bot with access token.
 
-## Download
-
-You'll have to manually install the plugin via the advanced tab of your plugin settings.
-A Jenkins plugin repo build will be available soon.
-
-## Usage
-
-This plugin uses the post-build feature to execute a request.
-
-After installing, go to your job's configure section and add the **Microsoft Teams Notifier** item. Then proceed to enter your webhook URL.
-
-![Post-build dropdown with Microsoft Teams Notifier Webhooks selected](https://imgur.com/28tUU2b.png)
-
-There are a few options you can choose from:
-
-- Webhook URL
-  - The URL of the webhook provided by Microsoft Teams ([Get Webhook URL here](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)).
-- Advanced:
-  - Branch
-    - If set, the branch will show up on the Microsoft Teams message.
-  - Title
-    - If set, the title will show up on the Microsoft Teams message. By default, the title is project name
-  - Web URL
-    - If set, the web url will show up on the Microsoft Teams message
-  - Description
-    - If set, the web url will show up on the Microsoft Teams message
-  - Time Zone
-    - By default, this will set time zone is UTC ([Get Time Zone here](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)).
-
-![Advanced tab in the config](https://i.imgur.com/EiOJxsd.png)
 
 ## Pipeline
 
-Telegram Notifier supports Jenkins Pipeline. The only required parameter is webhookURL (the URL of the webhook, of course) - but there isn't much point of sending nothing.
+Telegram Notifier supports Jenkins Pipeline.
 
 ### Parameters
 
-- webhookURL (required)
-  - The URL of the webhook (pretty self-explanatory) provided by Microsoft Teams ([Get Webhook URL here](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)). 
+- accessToken (required)
+  - The access token of the bot ([Get accessToken here](https://core.telegram.org/bots/features#botfather)). 
+- chatId (required)
+  - The chatId of the chanel ([Get chatId here](https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id)). 
 - title (required)
   - The title of the message.
 - result (required)
@@ -77,13 +45,15 @@ pipeline {
 
   post {
     always {
-      	msTeamsNotifier webhookURL: 'YOUR_WEBHOOK_URL', title: JOB_NAME, branchName: GIT_BRANCH, commitId: GIT_COMMIT.substring(0, 7), description: 'This is job test', result: currentBuild.currentResult, webUrl: 'https://www.jenkins.io/', jobLink: BUILD_URL, buildNumber: currentBuild.number, timeZone: 'Asia/Bangkok'
+      	telegramNotifier accessToken: "${TELEGRAM_ACCESS_TOKEN}", chatId: "${TELEGRAM_CHAT_ID}", title: "${PROJECT_NAME}", jobLink: "${JENKINS_SERVER}/job/${JOB_NAME}/${BUILD_NUMBER}/", branchName: "${BRANCH_NAME}", commitId: "${COMMIT_ID}", description: "${PROJECT_DESCRIPTION}", result: currentBuild.currentResult, webUrl: "${WEBSITE_URL}", buildNumber: currentBuild.number, timeZone: 'Asia/Bangkok'
     }
   }
 }
 ```
 
-### Message After Send
-The message after send look like:
+### Install Plugin
 
-![Message After Send](https://i.imgur.com/Tq5Hwax.png)
+- Go to your Jenkins Server with url /pluginManager/advanced
+- Scroll to section Deploy Plugin
+- Select the file hpi in project with path: ../telegram-notifier/target
+- Finally click button deploy

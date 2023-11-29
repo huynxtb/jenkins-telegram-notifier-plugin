@@ -4,7 +4,6 @@
 .idea/
 .vscode/
 *.iml
-target/
 work/
 test/
 images/

@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.303.3
+Plugin-Dependencies: workflow-step-api:2.19,structs:1.19
+Implementation-Title: telegram-notifier
+Long-Name: Telegram Notifier Plugin
+Implementation-Version: 2.3
+Group-Id: io.jenkins.plugins
+Minimum-Java-Version: 1.8
+Resource-Path: C:\HuyNX11\Data\Plugins Jenkins\telegram-notifier\src\m
+ ain\webapp
+Plugin-License-Name: MIT License
+Specification-Title: The Jenkins Plugins Parent POM Project
+Libraries: C:\HuyNX11\Data\Plugins Jenkins\telegram-notifier\src\main\
+ resources,C:\HuyNX11\Data\Plugins Jenkins\telegram-notifier\target\cl
+ asses,C:\Users\xuanh\.m2\repository\com\fasterxml\jackson\core\jackso
+ n-annotations\2.13.3\jackson-annotations-2.13.3.jar,C:\Users\xuanh\.m
+ 2\repository\com\fasterxml\jackson\core\jackson-core\2.13.3\jackson-c
+ ore-2.13.3.jar,C:\Users\xuanh\.m2\repository\com\fasterxml\jackson\co
+ re\jackson-databind\2.13.3\jackson-databind-2.13.3.jar,C:\Users\xuanh
+ \.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.j
+ ar,C:\Users\xuanh\.m2\repository\org\apache\httpcomponents\httpclient
+ \4.5.13\httpclient-4.5.13.jar,C:\Users\xuanh\.m2\repository\org\apach
+ e\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar
+Plugin-ScmUrl: https://github.com/jenkinsci/telegram-notifier-plugin
+Plugin-Version: 2.3
+Jenkins-Version: 2.303.3
+Url: https://github.com/jenkinsci/telegram-notifier-plugin
+Short-Name: telegram-notifier
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: Huy Nguyen:huynx11:huynx11.dev@gmail.com
+Extension-Name: telegram-notifier
+

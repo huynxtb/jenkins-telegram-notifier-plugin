@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.303.3
+Plugin-Dependencies: workflow-step-api:2.19,structs:1.19
+Implementation-Title: telegram-notifier
+Long-Name: Telegram Notifier Plugin
+Implementation-Version: 2.3
+Group-Id: io.jenkins.plugins
+Minimum-Java-Version: 1.8
+Plugin-License-Name: MIT License
+Specification-Title: The Jenkins Plugins Parent POM Project
+Plugin-ScmUrl: https://github.com/jenkinsci/telegram-notifier-plugin
+Plugin-Version: 2.3
+Jenkins-Version: 2.303.3
+Url: https://github.com/jenkinsci/telegram-notifier-plugin
+Short-Name: telegram-notifier
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: Huy Nguyen:huynx11:huynx11.dev@gmail.com
+Extension-Name: telegram-notifier
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+
